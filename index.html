@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline Productivity & Habit Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <h2>FocusHub</h2>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#tasks" class="nav-link active">
+                        <span class="icon">✓</span> Tasks / कार्य
+                    </a></li>
+                <li><a href="#habits" class="nav-link">
+                        <span class="icon">↻</span> Habits / आदतें
+                    </a></li>
+                <li><a href="#notes" class="nav-link">
+                        <span class="icon">📝</span> Notes / नोट्स
+                    </a></li>
+                <li><a href="#stats" class="nav-link">
+                        <span class="icon">📊</span> Stats / आँकड़े
+                    </a></li>
+                <li><a href="#settings" class="nav-link">
+                        <span class="icon">⚙</span> Settings / सेटिंग्स
+                    </a></li>
+            </ul>
+            <div class="theme-toggle-container">
+                <button id="theme-toggle" class="btn-icon" title="Toggle Theme">🌓</button>
+            </div>
+            <div class="sidebar-footer">
+                <p>Designed by <br><strong>Er. Sangam Krishna</strong></p>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="content">
+
+            <!-- TASKS SECTION -->
+            <section id="tasks" class="section active">
+                <header class="section-header">
+                    <h1>Tasks & Focus <small>कार्य और ध्यान</small></h1>
+                </header>
+
+                <div class="tasks-layout">
+                    <div class="tasks-panel">
+                        <form id="add-task-form">
+                            <input type="text" id="task-input" placeholder="Add a new task..." autocomplete="off">
+                            <button type="submit" class="btn btn-primary">+</button>
+                        </form>
+                        <ul id="task-list" class="task-list">
+                            <!-- Tasks injected here -->
+                        </ul>
+                    </div>
+
+                    <div class="pomodoro-panel">
+                        <div class="timer-card">
+                            <h3 id="current-task-label">Select a task to focus</h3>
+                            <div class="timer-display" id="timer-display">25:00</div>
+                            <div class="timer-controls">
+                                <button id="timer-start" class="btn btn-success">Start</button>
+                                <button id="timer-pause" class="btn btn-warning">Pause</button>
+                                <button id="timer-reset" class="btn btn-secondary">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- HABITS SECTION -->
+            <section id="habits" class="section">
+                <header class="section-header">
+                    <h1>Habit Tracker <small>आदत ट्रैकर</small></h1>
+                </header>
+
+                <form id="add-habit-form" class="inline-form">
+                    <input type="text" id="habit-name" placeholder="New Habit (e.g. Read Book)" required>
+                    <input type="text" id="habit-category" placeholder="Category (Optional)">
+                    <button type="submit" class="btn btn-primary">Add Habit</button>
+                </form>
+
+                <div id="habit-list" class="habit-grid">
+                    <!-- Habits injected here -->
+                </div>
+            </section>
+
+            <!-- NOTES SECTION -->
+            <section id="notes" class="section">
+                <header class="section-header">
+                    <h1>Daily Notes <small>दैनिक नोट्स</small></h1>
+                </header>
+
+                <div class="notes-controls">
+                    <button id="prev-day" class="btn-icon">←</button>
+                    <input type="date" id="note-date">
+                    <button id="next-day" class="btn-icon">→</button>
+                </div>
+
+                <textarea id="note-content" class="note-area"
+                    placeholder="Reflect on your day... (Auto-saved)"></textarea>
+            </section>
+
+            <!-- STATS SECTION -->
+            <section id="stats" class="section">
+                <header class="section-header">
+                    <h1>Statistics <small>आँकड़े</small></h1>
+                </header>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Tasks Today</h3>
+                        <div class="stat-value" id="stat-tasks-today">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Pomodoros Today</h3>
+                        <div class="stat-value" id="stat-pomo-today">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Habits Done</h3>
+                        <div class="stat-value" id="stat-habits-today">0 / 0</div>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <h3>Weekly Focus (Pomodoros)</h3>
+                    <div id="weekly-chart" class="bar-chart">
+                        <!-- Bars injected here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- SETTINGS SECTION -->
+            <section id="settings" class="section">
+                <header class="section-header">
+                    <h1>Settings <small>सेटिंग्स</small></h1>
+                </header>
+                <div class="settings-content">
+                    <p>Data is stored locally in your browser.</p>
+                    <button class="btn btn-danger"
+                        onclick="if(confirm('Clear all data? This cannot be undone.')) { localStorage.clear(); location.reload(); }">Clear
+                        All Data</button>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/storage.js"></script>
+    <script src="js/habits.js"></script>
+    <script src="js/pomodoro.js"></script>
+    <script src="js/notes.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
