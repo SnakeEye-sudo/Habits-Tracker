@@ -138,15 +138,16 @@ Your habits are YOUR business. We don't collect, store, or analyze your data.
 ## 🐛 Known Issues & Future Improvements
 
 ### Coming Soon
-- [ ] Export habits to CSV
-- [ ] Import habits from file
+
+#### Version 2.0 Features (In Progress)
+- [x] Export habits to CSV
+- [x] Import habits from file  
 - [ ] Habit templates
-- [ ] Custom color themes
+- [x] Custom color themes (5 presets: Light, Dark, Ocean, Sunset, Forest)
 - [ ] Habit notes and journal
 - [ ] Backup and restore
 - [ ] Multiple device sync (cloud backup)
-- [ ] PWA support (installable app)
-
+- [x] PWA support (installable app - manifest.json configured)
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
